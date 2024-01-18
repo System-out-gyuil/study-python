@@ -8,8 +8,8 @@ import response
 
 client_id = '15tKD_8cQrQ0cUKW9sN1'
 client_secret = 'XRElLB0ynx'
-encoding_text = urllib.parse.quote("정인이는 바보")
-data = f"source=ko&target=ja&text={encoding_text}"
+encoding_text = urllib.parse.quote("집가고싶다")
+data = f"source=ko&target=en&text={encoding_text}"
 url = "https://openapi.naver.com/v1/papago/n2mt"
 request = urllib.request.Request(url)
 
@@ -21,4 +21,6 @@ rescode = response.getcode()
 
 if rescode == 200:
     response = json.loads(response.read().decode("utf-8"))
+    print(response)
     print(response['message']['result']['translatedText'])
+    # print(response['translatedText'])
